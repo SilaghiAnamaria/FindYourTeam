@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %} Intrare in cont {% endblock %}
+{% block content %}
+<div class="container-fluid">
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div class="card" style="margin-top:10%">
+            <div class="card-header">
+                <h4 class="text-center"> Crează un cont nou</h4>
+            </div>
+            <form method="post">
+                {% csrf_token %}
+                <div class="card-body">
+                    {{ form.as_p }}
+                </div>
+                <div class="card-footer text-center">
+                    <button type="submit" class="btn btn-success">
+                        Salvează un nou cont
+                    </button>
+                    <a href="#" class="btn btn-secondary">Anulare</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}

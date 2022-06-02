@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block title %} Lista cu jucători {% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                {% if all_players %}
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Nume intreg</th>
+                            <th>Porecla</th>
+                            <th>Decriere</th>
+                            <th>Varsta</th>
+                            <th>Localitate</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for player in all_players%}
+                            <tr>
+                                <td>{{ player.prenume }} {{ player.nume }}</td>
+                                <td>{{ player.nickname }} </td>
+                                <td>{{ player.descriere }} </td>
+                                <td>{{ player.varsta }} </td>
+                                <td>{{ player.localitate }} </td>
+
+
+
+                                <td>
+                                    <a href="{% url 'update_player' player.id %}" class="btn btn-info">Actualizare</a>
+                                    <a href="{% url 'delete_jucator' player.id %}" class="btn btn-danger">Stergere</a>
+                                    <a href="{% url 'details_jucator' player.id %}" class="btn btn-info">Detalii</a>
+
+                                     <div class="modal fade" id="delete_{{ player.id }}" tabindex="-1"
+                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">{{ player.porecla }}</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Inchide"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Doreşti să ştergi {{ player.porecla }}?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">NU
+                                                    </button>
+                                                    <a href="{% url 'delete_player_modal' player.id %}" class="btn btn-danger">DA</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <h3 class="text-center">Nu există informaţii</h3>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

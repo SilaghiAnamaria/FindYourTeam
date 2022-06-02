@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %} Adaugă eveniment {% endblock %}
+
+{% block content %}
+    <div class="container wow fadeIn">
+        <div class="row">
+            <div class="alignleft wow fadeInUp" data-wow-delay="0.2s">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h3>Crează eveniment</h3>
+                    </div>
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="card-body">
+                            {{ form.as_p }}
+                        </div>
+                        <div class="card-footer text-center">
+                            <button type="submit" class="btn btn-primary">Salvare</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
