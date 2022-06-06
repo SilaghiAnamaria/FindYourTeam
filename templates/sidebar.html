@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-sm" style="background-color:darkseagreen">
+<nav class="navbar navbar-expand-sm" style="background-color:teal">
     <header class='header-fixed'>
         <div class="container">
-            <a class="navbar-brand" href="#">Find your Team</a>
+            <a class="navbar-brand text-dark" href="#">Find your Team</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,12 +10,12 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="text-dark" aria-current="page" href="{% url 'home' %}">Home</a>
+                        <a class="text-dark" aria-current="page" href="{% url 'home' %}">Despre noi</a>
                     </li>
                     {#                {%  if request.user.is_authenticated and request.user,is_superuser %}#}
                     {#                {% if request.user.is_authenticated %}#}
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">
                             Jucatori
 
@@ -33,7 +33,7 @@
                     {#                  {%  if request.user.is_authenticated and request.user,is_superuser %}#}
                     {#                {% if request.user.is_authenticated %}#}
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">
 
                             Evenimente
@@ -50,7 +50,7 @@
                     </li>
                     {#                {% endif %}#}
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">
 
 
@@ -68,7 +68,7 @@
                     </li>
                     {#                {% endif %}#}
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">
 
                             Sporturi

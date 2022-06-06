@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 class Event(models.Model):
     gender_choices = (("male", "Male"), ("female", "Female"))
     dificulty_choices = (("incepator", "Incepator"), ("intermediar", "Intermediar"), ("avanasat", "Avansat"))
-    city_choices = (("SIBIU", "SIBIU"), ("BRASOV", "BRASOV"), ("CLUJ", "CLUJ"))
+    city_choices = (("SIBIU", "SIBIU"), ("BRASOV", "BRASOV"), ("CLUJ-NAPOCA", "CLUJ-NAPOCA"))
 
     nume = models.CharField(max_length=20)
     oras = models.CharField(max_length=30, choices=city_choices)
