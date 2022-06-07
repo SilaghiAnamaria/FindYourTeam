@@ -9,6 +9,7 @@ class Event(models.Model):
     dificulty_choices = (("incepator", "Incepator"), ("intermediar", "Intermediar"), ("avanasat", "Avansat"))
     city_choices = (("SIBIU", "SIBIU"), ("BRASOV", "BRASOV"), ("CLUJ-NAPOCA", "CLUJ-NAPOCA"))
 
+
     nume = models.CharField(max_length=20)
     oras = models.CharField(max_length=30, choices=city_choices)
     descriere = models.TextField(max_length=1000)
@@ -58,12 +59,14 @@ class Location(models.Model):
 
 
 class Sport(models.Model):
-
+    gender_choices = (("barbat", "Barbat"), ("femeie", "Femeie"))
     nume = models.CharField(max_length=60)
-    oras = models.CharField(max_length=30)
+    oras = models.CharField(max_length=30, )
+    locatie = models.ForeignKey(Location, on_delete=models.CASCADE)
     descriere = models.TextField(max_length=1000)
     numar_minim_de_jucatori = models.IntegerField()
     numar_maxim_de_jucatori = models.IntegerField()
+    gen = models.CharField(max_length=10, choices=gender_choices)
     creat_in = models.DateTimeField(auto_now_add=True)
     actualizat_in = models.DateTimeField(auto_now=True)
 

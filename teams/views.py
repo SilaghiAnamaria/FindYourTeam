@@ -30,7 +30,7 @@ class PlayerCreateView(CreateView):
     template_name = "player/create_player.html"
     model = Player
     form_class = PlayerForm
-    success_url = reverse_lazy("lists_of_players")  # unde se duce dupa ce dam submit
+    success_url = reverse_lazy("list_of_players")  # unde se duce dupa ce dam submit
     # permission_required = 'jucator.add_jucator'
 
 
@@ -46,7 +46,7 @@ class LocationCreateView(CreateView):
     template_name = "location/create_location.html"
     model = Location
     form_class = LocationForm
-    success_url = reverse_lazy("list_of_location")  # unde se duce dupa ce dam submit
+    success_url = reverse_lazy("list_of_locations")  # unde se duce dupa ce dam submit
     # permission_required = 'locatie.add_locatie'
 
 

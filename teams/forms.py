@@ -56,6 +56,7 @@ class SportForm(forms.ModelForm):
             "nume": TextInput(attrs={'placeholder': "Introduceti numele sportului", "class": "form-control"}),
             "oras": TextInput(attrs={'placeholder': "Introduceti localitatea", "class": "form-control"}),
             "descriere": Textarea(attrs={"placeholder": "Faceti o descriere a sportului", "class": "form-control"}),
+            "gen": Select(attrs={"class": "form-select"}),
             "numar_minim_de_jucatori": TextInput(attrs={'placeholder': "Introduceti numarul minim de jucatori", "class": "form-control"}),
             "numar_maxim_de_jucatori": TextInput(attrs={'placeholder': "Introduceti numarul maxim de jucatori", "class": "form-control"}),
         }

@@ -1,16 +1,17 @@
 <nav class="navbar navbar-expand-sm" style="background-color:teal">
     <header class='header-fixed'>
         <div class="container">
-            <a class="navbar-brand text-dark" href="#">Find your Team</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <a class="logo-brand" href="/">
+                <img src="css/img/logo.jpg title="Find your Team>
+            </a>
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+                    data-target="navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="icon-bar"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="text-dark" aria-current="page" href="{% url 'home' %}">Despre noi</a>
+                        <a class="text-dark btn" aria-current="page" href="{% url 'home' %}">Despre noi</a>
                     </li>
                     {#                {%  if request.user.is_authenticated and request.user,is_superuser %}#}
                     {#                {% if request.user.is_authenticated %}#}
@@ -84,19 +85,26 @@
                         </ul>
                     </li>
                     {#                {% endif %}#}
-
+</nav>
                 </ul>
 
-                {% if request.user.is_authenticated %}
-                    <div class="col-md-6 offset-md-10">
-                        <a href="{% url 'logout' %}" class="btn btn-success">Iesire din cont, {{ user.username }}</a>
-                    </div>
-                {% else %}
-                    <div class="col-md-6 offset-md-10">
-                    <a href="{% url 'create_user' %}" class="btn btn-secondary">Creaza cont nou</a>
-                    <a href="{% url 'login' %}" class="btn btn-success">Intrare in cont</a>
-                {% endif %}
-                </div>
-            </div>
-        </div>
-</nav>
+
+
+{% if request.user.is_authenticated %}
+    <div class="col-md-6 offset-md-10">
+        <a href="{% url 'logout' %}" class="btn btn-success">Iesire din cont, {{ user.first_name }}</a>
+    </div>
+{% else %}
+    <div class="col-md-6 offset-md-10">
+    <a href="{% url 'create_user' %}" class="btn btn-secondary">Creaza cont nou</a>
+    <a href="{% url 'login' %}" class="btn btn-success">Intrare in cont</a>
+{% endif %}
+</div>
+</div>
+</div>
+<form class="d-flex">
+    <input class="form-control md-8 offset-xl-6" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
+</div>
+</div>
