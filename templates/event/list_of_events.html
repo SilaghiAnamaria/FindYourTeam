@@ -4,13 +4,14 @@
 {% block content %}
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-10">
                 {% if all_events %}
                     <table class="table">
                         <thead>
                         <tr>
                             <th>Nume eveniment</th>
-                            <th>Numar membrii, min/max</th>
+                            <th>Tipul de sport</th>
+                            <th>De la/Pana la</th>
                             <th>Dificultate</th>
                             <th>Gen</th>
                             <th>Decriere</th>
@@ -22,7 +23,8 @@
                         {% for event in all_events%}
                             <tr>
                                 <td>{{ event.nume }}</td>
-                                <td>{{ event.numar_min_de_jucatori }} {{'/'}} {{ event.numar_max_de_jucatori }}</td>
+                                <td>{{ event.sporturi }}</td>
+                                <td>{{ event.de_la }} {{ event.pana_la }}</td>
                                 <td>{{ event.dificultate }} </td>
                                 <td>{{ event.gen }} </td>
                                 <td>{{ event.descriere }} </td>
@@ -30,31 +32,9 @@
 
 
                                 <td>
-                                    <a href="{% url 'update_echipa' event.id %}" class="btn btn-info">Actualizare</a>
-                                    <a href="{% url 'delete_echipa' event.id %}" class="btn btn-danger">Stergere</a>
-                                    <a href="{% url 'details_echipa' event.id %}" class="btn btn-info">Detalii</a>
+                                    <a href="{% url 'update_event' event.id %}" class="btn btn-info">Actualizare</a>
+                                    <a href="{% url 'delete_event' event.id %}" class="btn btn-danger">Stergere</a>
 
-                                     <div class="modal fade" id="delete_{{ event.id }}" tabindex="-1"
-                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">{{ event.nume }}</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Inchide"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    Doreşti să ştergi {{ event.nume }}?
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal">NU
-                                                    </button>
-                                                    <a href="{% url 'delete_echipa_modal' event.id %}" class="btn btn-danger">DA</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </td>
                             </tr>
                         {% endfor %}

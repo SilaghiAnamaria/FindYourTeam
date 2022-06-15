@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %} Ştergere {{ player.nume }} {{ player.prenume }}{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center"> Eşti sigur ca vrei sa ştergi {{ player.nume }} {{ player.prenume }}?</h4>
+                    </div>
+                    <div class="card-body text-center">
+                        <form method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">Yes</button>
+                            <a href="{% url 'list_of_players' %}" class=" btn btn-secondary">No</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

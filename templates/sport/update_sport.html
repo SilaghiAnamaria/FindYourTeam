@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
-{% block title %} Adaugă locatie{% endblock %}
+{% block title %}Actualizare pentru sportul {{ sport.nume }} {% endblock %}
 {% block content %}
     <div class="container-fluid">
-        <div class="row g-2">
+        <div class="row">
             <div class="col-md-6 offset-md-3">
                 <div class="card">
                     <div class="card-header text-center">
-                        <h3>Crează locatie</h3>
+                        <h3> Actualizare - {{ sport.nume }}</h3>
                     </div>
                     <form method="post">
                         {% csrf_token %}
@@ -14,7 +14,8 @@
                             {{ form.as_p }}
                         </div>
                         <div class="card-footer text-center">
-                            <button type="submit" class="btn btn-primary">Salvare</button>
+                            <button type="submit" class="btn btn-primary">Actualizare</button>
+                            <a href="{% url 'list_of_sports' %}" class="btn btn-secondary">Inapoi la lista cu sporturi</a>
                         </div>
                     </form>
 

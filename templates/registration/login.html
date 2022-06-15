@@ -4,8 +4,8 @@
 {% block content %}
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <div class="card" style="margin-top:20%">
+            <div class="col-md-2 offset-md-8">
+                <div class="card" style="margin-top:30%">
                     <div class="card-header">
                         <h4 class="text-center">Autentificare</h4>
                     </div>
@@ -14,8 +14,11 @@
                         <div class="card-body">
                             {{ form.as_p }}
                         </div>
-                        <div class="card-footer text-center">
-                            <button type="submit" class="btn btn-primary">Intra in cont</button>
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-success">Intra in cont</button>
+                            <button type="submit" class="btn btn-info " style="margin-left:20%">
+                                <a href="{% url 'create_user' %}">Crează cont nou</a>
+                            </button>
                         </div>
                     </form>
                 </div>

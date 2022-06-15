@@ -23,35 +23,10 @@
                                 <td>{{ location.oras }}</td>
                                 <td>{{ location.adresa }} </td>
                                 <td>{{ location.descriere }} </td>
-
-
-{#                                <td>#}
-{#                                    <a href="{% url 'update_location' location.id %}" class="btn btn-info">Actualizare</a>#}
-{#                                    <a href="{% url 'delete_location' location.id %}" class="btn btn-danger">Stergere</a>#}
-{#                                    <a href="{% url 'details_location' location.id %}" class="btn btn-info">Detalii</a>#}
-{##}
-{#                                     <div class="modal fade" id="delete_{{ location.id }}" tabindex="-1"#}
-{#                                         aria-labelledby="exampleModalLabel" aria-hidden="true">#}
-{#                                        <div class="modal-dialog">#}
-{#                                            <div class="modal-content">#}
-{#                                                <div class="modal-header">#}
-{#                                                    <h5 class="modal-title" id="exampleModalLabel">{{ location.denumire }}</h5>#}
-{#                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"#}
-{#                                                            aria-label="Inchide"></button>#}
-{#                                                </div>#}
-{#                                                <div class="modal-body">#}
-{#                                                    Doreşti să ştergi {{ location.denumire }}?#}
-{#                                                </div>#}
-{#                                                <div class="modal-footer">#}
-{#                                                    <button type="button" class="btn btn-secondary"#}
-{#                                                            data-bs-dismiss="modal">NU#}
-{#                                                    </button>#}
-{#                                                    <a href="{% url 'delete_location_modal' location.id %}" class="btn btn-danger">DA</a>#}
-{#                                                </div>#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                    </div>#}
-{#                                </td>#}
+                                <td>
+                                    <a href="{% url 'update_location' location.id %}" class="btn btn-info">Actualizare</a>
+                                    <a href="{% url 'delete_location' location.id %}" class="btn btn-danger">Stergere</a>
+                                </td>
                             </tr>
                         {% endfor %}
                         </tbody>

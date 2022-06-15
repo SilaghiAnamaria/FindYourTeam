@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView, CreateView, ListView
+from django.views.generic import TemplateView, CreateView, ListView, UpdateView, DeleteView
 
 from teams.forms import EventForm, LocationForm, PlayerForm, SportForm
 from teams.models import Event, Player, Location, Sport
@@ -25,6 +25,22 @@ class EventListView(ListView):
     # permission_req
 
 
+class EventUpdateView(UpdateView):
+    template_name = 'event/update_event.html'
+    model = Event
+    form_class = EventForm
+    success_url = reverse_lazy('list_of_events')
+
+
+
+
+class EventDeleteView(DeleteView):
+    template_name = 'event/delete_event.html'
+    model = Event
+    success_url = reverse_lazy('list_of_events')
+
+
+
 
 class PlayerCreateView(CreateView):
     template_name = "player/create_player.html"
@@ -39,6 +55,20 @@ class PlayerListView(ListView):
     model = Player
     context_object_name = "all_players"
     # permission_required = 'jucator.add_jucator'
+
+class PlayerUpdateView(UpdateView):
+    template_name = 'player/update_player.html'
+    model = Player
+    form_class = PlayerForm
+    success_url = reverse_lazy('list_of_players')
+
+
+
+
+class PlayerDeleteView(DeleteView):
+    template_name = 'player/delete_player.html'
+    model = Player
+    success_url = reverse_lazy('list_of_players')
 
 
 
@@ -57,6 +87,19 @@ class LocationListView(ListView):
     context_object_name = "all_locations"
     # permission_required = 'locatie.add_locatie'
 
+class LocationUpdateView(UpdateView):
+    template_name = 'location/update_location.html'
+    model = Location
+    form_class = LocationForm
+    success_url = reverse_lazy('list_of_locations')
+
+
+
+class LocationDeleteView(DeleteView):
+    template_name = 'location/delete_location'
+    model = Location
+    success_url = reverse_lazy('list_of_locations')
+
 
 
 class SportCreateView(CreateView):
@@ -73,6 +116,18 @@ class SportListView(ListView):
     context_object_name = "all_sports"
 
 
+class SportUpdateView(UpdateView):
+    template_name = 'sport/update_sport.html'
+    model = Sport
+    form_class = SportForm
+    success_url = reverse_lazy('list_of_sports')
+
+
+
+class SportDeleteView(DeleteView):
+    template_name = 'sport/delete_sport.html'
+    model = Sport
+    success_url = reverse_lazy('list_of_sports')
 
 
 class UserExtendCreateView(CreateView):
@@ -82,18 +137,3 @@ class UserExtendCreateView(CreateView):
     success_url = reverse_lazy('login')
 
 
-    # def form_valid(self, form):
-    #     if form.is_valid() and not form.errors:
-    #         user = form.save(commit=False)
-    #         text_message = f"Your username is {user.username} and your password is {form.cleaned_data['password1']}"
-    #         send_mail(subject="Create a new account", message=text_message, from_email=EMAIL_HOST_USER, recipient_list=[user.email])
-    #         user.save()
-    #         return redirect('login')
-
-
-            # Pentru a va trimite un email cu username si parola este hash
-            # user = form.save(commit=False)
-            # text_message = f"Your username is{user.username} and your password {user.password}"
-            # send_mail(subject="Create a new account", message=text_message, from_email=EMAIL_HOST_USER, recipient_list=[user.email])
-            # user.save()
-            # return redirect('login')

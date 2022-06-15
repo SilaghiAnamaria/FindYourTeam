@@ -3,20 +3,18 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-
 class Event(models.Model):
-    gender_choices = (("male", "Male"), ("female", "Female"))
-    dificulty_choices = (("incepator", "Incepator"), ("intermediar", "Intermediar"), ("avanasat", "Avansat"))
+    gender_choices = (("Ambele", "Both"), ("Bărbaţi", "man"), ("Femei", "women"))
+    dificulty_choices = (("all", "Toate"), ("incepator", "Incepator"), ("intermediar", "Intermediar"), ("avanasat", "Avansat"))
     city_choices = (("SIBIU", "SIBIU"), ("BRASOV", "BRASOV"), ("CLUJ-NAPOCA", "CLUJ-NAPOCA"))
-
+    sport_type = (("all", "Toate"), ("handball", "Handbal"), ("football", "Fotbal"), ("tennis", "Tenis de camp"))
 
     nume = models.CharField(max_length=20)
     oras = models.CharField(max_length=30, choices=city_choices)
-    descriere = models.TextField(max_length=1000)
     gen = models.CharField(max_length=10, choices=gender_choices)
-    numar_minim_de_jucatori = models.IntegerField()
-    numar_maxim_de_jucatori = models.IntegerField()
+    sporturi = models.CharField(max_length=15, choices=sport_type, default="")
     dificultate = models.CharField(max_length=20, choices=dificulty_choices)
+    descriere = models.TextField(max_length=800)
     creat_in = models.DateTimeField(auto_now_add=True)
     actualizat_in = models.DateTimeField(auto_now=True)
 
@@ -24,10 +22,8 @@ class Event(models.Model):
         return f"{self.nume} {self.gen} {self.dificultate}"
 
 
-
-
 class Player(models.Model):
-    gender_choices = (("barbat", "Barbat"), ("femeie", "Femeie"))
+    gender_choices = (("Bărbaţi", "man"), ("Femei", "women"))
 
     nume = models.CharField(max_length=20)
     prenume = models.CharField(max_length=20)
@@ -59,24 +55,30 @@ class Location(models.Model):
 
 
 class Sport(models.Model):
-    gender_choices = (("barbat", "Barbat"), ("femeie", "Femeie"))
-    nume = models.CharField(max_length=60)
-    oras = models.CharField(max_length=30, )
-    locatie = models.ForeignKey(Location, on_delete=models.CASCADE)
+    gender_choices = (("Bărbaţi", "man"), ("Femei", "women"))
+
+    nume = models.CharField(max_length=10)
+    locatie = models.CharField(max_length=30, null=True, blank=True)
+    oras = models.CharField(max_length=30)
     descriere = models.TextField(max_length=1000)
     numar_minim_de_jucatori = models.IntegerField()
     numar_maxim_de_jucatori = models.IntegerField()
-    gen = models.CharField(max_length=10, choices=gender_choices)
+    gen = models.CharField(max_length=10, choices=gender_choices,default="")
     creat_in = models.DateTimeField(auto_now_add=True)
     actualizat_in = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"{self.nume} {self.oras}"
 
+class SportLocation(models.Model):
+    location = models.ForeignKey(Location, on_delete=models.CASCADE)
+    sport = models.ForeignKey(Sport, on_delete=models.CASCADE)
+    name = models.CharField(max_length=264)
+    description = models.CharField(max_length=264)
 
 
 class UserExtendCreateView(User):
-    gender_choices = (("barbat", "Barbat"), ("femeie", "Femeie"))
+    gender_choices = (("Bărbaţi", "man"), ("Femei", "women"))
 
 
     numar_telefon = models.CharField(max_length=15)

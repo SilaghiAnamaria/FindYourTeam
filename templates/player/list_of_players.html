@@ -25,35 +25,9 @@
                                 <td>{{ player.descriere }} </td>
                                 <td>{{ player.varsta }} </td>
                                 <td>{{ player.localitate }} </td>
-
-
-
                                 <td>
                                     <a href="{% url 'update_player' player.id %}" class="btn btn-info">Actualizare</a>
-                                    <a href="{% url 'delete_jucator' player.id %}" class="btn btn-danger">Stergere</a>
-                                    <a href="{% url 'details_jucator' player.id %}" class="btn btn-info">Detalii</a>
-
-                                     <div class="modal fade" id="delete_{{ player.id }}" tabindex="-1"
-                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">{{ player.porecla }}</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                            aria-label="Inchide"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    Doreşti să ştergi {{ player.porecla }}?
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal">NU
-                                                    </button>
-                                                    <a href="{% url 'delete_player_modal' player.id %}" class="btn btn-danger">DA</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <a href="{% url 'delete_player' player.id %}" class="btn btn-danger">Ştergere</a>
                                 </td>
                             </tr>
                         {% endfor %}

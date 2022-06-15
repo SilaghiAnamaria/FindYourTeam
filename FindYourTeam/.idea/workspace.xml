@@ -1,13 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bb870d3c-a960-4223-9f97-8e1271056911" name="Changes" comment="" />
+    <list default="true" id="bb870d3c-a960-4223-9f97-8e1271056911" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../templates/event/delete_event.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../templates/event/update_event.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../templates/location/delete_location.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../templates/location/update_location.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../templates/player/delete_player.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../templates/player/update_player.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../templates/sport/delete_sport.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../templates/sport/update_sport.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../css/img/background.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../static/css/img/background.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../css/img/logo.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../static/css/img/logo.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/../db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../teams/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/../teams/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../teams/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../teams/migrations/0002_rename_last_name_event_name_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../teams/migrations/0003_rename_userextend_userextendcreateview_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../teams/migrations/0004_event_oras.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../teams/migrations/0005_alter_event_oras.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../teams/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../teams/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../teams/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../teams/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../teams/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../teams/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/../templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../templates/event/create_event.html" beforeDir="false" afterPath="$PROJECT_DIR$/../templates/event/create_event.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../templates/event/list_of_events.html" beforeDir="false" afterPath="$PROJECT_DIR$/../templates/event/list_of_events.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../templates/home/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../templates/home/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../templates/location/create_location.html" beforeDir="false" afterPath="$PROJECT_DIR$/../templates/location/create_location.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../templates/location/list_of_locations.html" beforeDir="false" afterPath="$PROJECT_DIR$/../templates/location/list_of_locations.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../templates/player/list_of_players.html" beforeDir="false" afterPath="$PROJECT_DIR$/../templates/player/list_of_players.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../templates/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/../templates/sidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../templates/sport/list_of_sports.html" beforeDir="false" afterPath="$PROJECT_DIR$/../templates/sport/list_of_sports.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="29wTN68E9huzW8XHB9PkkzXVG2n" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -55,6 +91,7 @@
       <updated>1654023104706</updated>
       <workItem from="1654023106347" duration="45000" />
       <workItem from="1654084074650" duration="25000" />
+      <workItem from="1655218875702" duration="187000" />
     </task>
     <servers />
   </component>

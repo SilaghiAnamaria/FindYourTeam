@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %} Home {% endblock %}
 {% block content %}
 <body>
-<h1>Bine ai venit pe "Find your TEAM"!</h1>
-<img src="css/img/background.jpg">
+
+    <img src="{% static 'css/img/background.jpg' %}" style="width:2760px">
+
 </body>
+
 {% endblock %}

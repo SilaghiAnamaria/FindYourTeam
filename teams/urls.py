@@ -7,7 +7,6 @@ urlpatterns = [
 
     path("", views.HomeTemplateView.as_view(), name="home"),
     path('admin/', admin.site.urls),
-
     path('create-event/', views.EventCreateView.as_view(), name="create_event"),
     path('list-of-events/', views.EventListView.as_view(), name="list_of_events"),
     path('create-player/', views.PlayerCreateView.as_view(), name="create_player"),
@@ -17,5 +16,13 @@ urlpatterns = [
     path('create-sport/', views.SportCreateView.as_view(), name="create_sport"),
     path('list_of_sports/', views.SportListView.as_view(), name="list_of_sports"),
     path('create-user/', views.UserExtendCreateView.as_view(), name='create_user'),
+    path('update-sport/<int:pk>/', views.SportUpdateView.as_view(), name='update_sport'),
+    path('update-event/<int:pk>/', views.EventUpdateView.as_view(), name='update_event'),
+    path('update-location/<int:pk>/', views.LocationUpdateView.as_view(), name='update_location'),
+    path('update-player/<int:pk>/', views.PlayerUpdateView.as_view(), name='update_player'),
+    path('delete-sport/<int:pk>/', views.SportDeleteView.as_view(), name='delete_sport'),
+    path('delete-event/<int:pk>/', views.EventDeleteView.as_view(), name='delete_event'),
+    path('delete-location/<int:pk>/', views.LocationDeleteView.as_view(), name='delete_location'),
+    path('delete-player/<int:pk>/', views.PlayerDeleteView.as_view(), name='delete_player'),
 
 ]
