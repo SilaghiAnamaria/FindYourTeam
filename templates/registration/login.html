@@ -4,22 +4,29 @@
 {% block content %}
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-2 offset-md-8">
-                <div class="card" style="margin-top:30%">
+            <div class="col-md-3 offset-md-4">
+                <div class="card" style="margin-top: 10%">
                     <div class="card-header">
                         <h4 class="text-center">Autentificare</h4>
                     </div>
                     <form method="post">
                         {% csrf_token %}
-                        <div class="card-body">
-                            {{ form.as_p }}
-                        </div>
-                        <div class="btn-group">
-                            <button type="submit" class="btn btn-success">Intra in cont</button>
-                            <button type="submit" class="btn btn-info " style="margin-left:20%">
-                                <a href="{% url 'create_user' %}">Crează cont nou</a>
+                            <div class="mb-4">
+                                <label for="text" class="form-label">Utilizator</label>
+                                <input type="text" class="form-control" name="username" aria-describedby="emailHelp">
+                            </div>
+                            <div class="mb-4">
+                                <label for="exampleInputPassword1" class="form-label">Parola</label>
+                                <input type="password" class="form-control" name="password">
+                            </div>
+                            <div class="mb-4 form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Pastreaza-ma autentificat</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Intra in cont</button>
+                            <button type="submit" class="btn btn-info">
+                                <a href="{% url 'create_user' %}">Creaza un cont nou</a>
                             </button>
-                        </div>
                     </form>
                 </div>
             </div>

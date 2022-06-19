@@ -12,6 +12,7 @@
                             <th>Nume intreg</th>
                             <th>Porecla</th>
                             <th>Decriere</th>
+                            <th>Poza</th>
                             <th>Varsta</th>
                             <th>Localitate</th>
                             <th>Actions</th>
@@ -21,10 +22,11 @@
                         {% for player in all_players%}
                             <tr>
                                 <td>{{ player.prenume }} {{ player.nume }}</td>
-                                <td>{{ player.nickname }} </td>
+                                <td>{{ player.porecla }} </td>
                                 <td>{{ player.descriere }} </td>
+                                <td>{{ player.poza }} </td>
                                 <td>{{ player.varsta }} </td>
-                                <td>{{ player.localitate }} </td>
+                                <td>{{ player.oras }} </td>
                                 <td>
                                     <a href="{% url 'update_player' player.id %}" class="btn btn-info">Actualizare</a>
                                     <a href="{% url 'delete_player' player.id %}" class="btn btn-danger">Ştergere</a>

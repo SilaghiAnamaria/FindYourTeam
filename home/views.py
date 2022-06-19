@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
+
+from teams.models import Event
 
 
 class HomeTemplateView(TemplateView):
