@@ -3,20 +3,27 @@
 
 {% block content %}
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-10">
-                {% if all_events %}
+        <div class="row g-5 mt-5 pt-5">
+            <div class="col-md-10 offset-md-12">
+                 <div class="shadow-sm text-center rounded" style="background-color: #F8D486; margin-top: 5%">
+                     {% if all_events %}
                     <table class="table">
                         <thead>
                         <tr>
                             <th>Nume eveniment</th>
                             <th>Tipul de sport</th>
-                            <th>De la/Pana la</th>
+                            <th>De la/Pâna la</th>
                             <th>Dificultate</th>
                             <th>Gen</th>
-                            <th>Decriere</th>
+                            <th>Descriere</th>
                             <th>Localitate</th>
-                            <th>Actions</th>
+                            {% if perms.event.add_event %}
+                            <th>Acţiuni</th>
+                                {% endif %}
+{#                            <th>Nume eveniment</th>#}
+{#                            <th>Descriere eveniment</th>#}
+{#                            <th>De la</th>#}
+{#                            <th>Pana la</th>#}
                         </tr>
                         </thead>
                         <tbody>
@@ -29,13 +36,17 @@
                                 <td>{{ event.gen }} </td>
                                 <td>{{ event.descriere }} </td>
                                 <td>{{ event.oras }} </td>
-
-
+{#                                <td>{{ event.title }} </td>#}
+{#                                <td>{{ event.description }} </td>#}
+{#                                <td>{{ event.start_time }} </td>#}
+{#                                <td>{{ event.end_time }} </td>#}
+                               {% if perms.event.add_event %}
                                 <td>
                                     <a href="{% url 'update_event' event.id %}" class="btn btn-info">Actualizare</a>
                                     <a href="{% url 'delete_event' event.id %}" class="btn btn-danger">Stergere</a>
 
                                 </td>
+                            {% endif %}
                             </tr>
                         {% endfor %}
                         </tbody>

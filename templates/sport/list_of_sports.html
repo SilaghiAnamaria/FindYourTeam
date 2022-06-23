@@ -3,34 +3,39 @@
 
 {% block content %}
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
+        <div class="row g-5 mt-5 pt-5">
+            <div class="col-md-10 offset-md-12">
+                 <div class="shadow-sm text-center rounded" style="background-color: #F8D486; margin-top: 5%">
                 {% if all_sports %}
                     <table class="table">
                         <thead>
                         <tr>
                             <th>Denumire</th>
-                            <th>Locatie</th>
+                            <th>Locaţie</th>
                             <th>Gen</th>
-                            <th>Numar membri, min/max</th>
+                            <th>Număr membrii, min/max</th>
                             <th>Localitate</th>
                             <th>Descriere</th>
-                            <th>Actions</th>
+                            {% if perms.sport.add_sport %}
+                                <th>Acţiuni</th>
+                            {% endif %}
                         </tr>
                         </thead>
                         <tbody>
-                        {% for sport in all_sports%}
+                        {% for sport in all_sports %}
                             <tr>
                                 <td>{{ sport.nume }}</td>
                                 <td>{{ sport.locatie }}</td>
                                 <td>{{ sport.gen }}</td>
-                                <td>{{ sport.numar_minim_de_jucatori }} {{'/'}} {{ sport.numar_maxim_de_jucatori }}</td>
+                                <td>{{ sport.numar_minim_de_jucatori }} {{ '/' }} {{ sport.numar_maxim_de_jucatori }}</td>
                                 <td>{{ sport.oras }} </td>
                                 <td>{{ sport.descriere }} </td>
-                                <td>
-                                    <a href="{% url 'update_sport' sport.id %}" class="btn btn-info">Actualizare</a>
-                                    <a href="{% url 'delete_sport' sport.id %}" class="btn btn-danger">Stergere</a>
-                                </td>
+                                {% if perms.sport.add_sport %}
+                                    <td>
+                                        <a href="{% url 'update_sport' sport.id %}" class="btn btn-info">Actualizare</a>
+                                        <a href="{% url 'delete_sport' sport.id %}" class="btn btn-danger">Stergere</a>
+                                    </td>
+                                {% endif %}
                             </tr>
                         {% endfor %}
                         </tbody>

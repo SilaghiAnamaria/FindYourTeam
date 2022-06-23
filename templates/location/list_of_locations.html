@@ -2,18 +2,21 @@
 {% block title %} Lista cu locaţii{% endblock %}
 
 {% block content %}
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
+       <div class="container-fluid">
+        <div class="row g-5 mt-5 pt-5">
+            <div class="col-md-10 offset-md-12">
+                 <div class="shadow-sm text-center rounded" style="background-color: #F8D486; margin-top: 5%">
                 {% if all_locations %}
                     <table class="table">
                         <thead>
                         <tr>
                             <th>Denumire</th>
                             <th>Localitate</th>
-                            <th>Adresa</th>
-                            <th>Decriere</th>
-                            <th>Actions</th>
+                            <th>Adresă</th>
+                            <th>Descriere</th>
+                            {% if perms.location.add_location %}
+                            <th>Acţiuni</th>
+                                {% endif %}
                         </tr>
                         </thead>
                         <tbody>
@@ -23,10 +26,12 @@
                                 <td>{{ location.oras }}</td>
                                 <td>{{ location.adresa }} </td>
                                 <td>{{ location.descriere }} </td>
+                                {% if perms.location.add_location %}
                                 <td>
                                     <a href="{% url 'update_location' location.id %}" class="btn btn-info">Actualizare</a>
                                     <a href="{% url 'delete_location' location.id %}" class="btn btn-danger">Stergere</a>
                                 </td>
+                                {% endif %}
                             </tr>
                         {% endfor %}
                         </tbody>

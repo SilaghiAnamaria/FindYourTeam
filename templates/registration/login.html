@@ -2,30 +2,33 @@
 {% block title %} Intrare in cont {% endblock %}
 
 {% block content %}
-    <div class="container-fluid">
-        <div class="row">
+<br>
+<br>
+<br>
+     <div class="container-fluid">
+        <div class="row g-5 mt-5 pt-5">
             <div class="col-md-3 offset-md-4">
-                <div class="card" style="margin-top: 10%">
+                <div class="card-center" style="grid-area: strong;margin-top: 5%">
                     <div class="card-header">
                         <h4 class="text-center">Autentificare</h4>
                     </div>
                     <form method="post">
                         {% csrf_token %}
-                            <div class="mb-4">
+                            <div class="mb-3">
                                 <label for="text" class="form-label">Utilizator</label>
                                 <input type="text" class="form-control" name="username" aria-describedby="emailHelp">
                             </div>
-                            <div class="mb-4">
+                            <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Parola</label>
                                 <input type="password" class="form-control" name="password">
                             </div>
-                            <div class="mb-4 form-check">
+                            <div class="mb-3 form-check">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Pastreaza-ma autentificat</label>
+                                <label class="form-check-label" for="exampleCheck1">Păstrează-mă autentificat</label>
                             </div>
-                            <button type="submit" class="btn btn-primary">Intra in cont</button>
-                            <button type="submit" class="btn btn-info">
-                                <a href="{% url 'create_user' %}">Creaza un cont nou</a>
+                            <button type="submit" class="btn btn-primary">Intră în cont</button>
+                            <button type="submit" class="btn btn-warning">
+                                <a href="{% url 'create_user' %}">Crează un cont nou</a>
                             </button>
                     </form>
                 </div>

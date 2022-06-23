@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 {% block title %} Ştergere {{ player.nume }} {{ player.prenume }}{% endblock %}
 {% block content %}
-    <div class="container-fluid">
-        <div class="row">
+     <div class="container-fluid">
+
+         <div class="row g-5 mt-5 pt-5">
             <div class="col-md-6 offset-md-3">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="text-center"> Eşti sigur ca vrei sa ştergi {{ player.nume }} {{ player.prenume }}?</h4>
+                        <h5 class="text-center"> Eşti sigur ca vrei sa ştergi jucătorul {{ player.nume }} {{ player.prenume }}?</h5>
                     </div>
                     <div class="card-body text-center">
                         <form method="post">

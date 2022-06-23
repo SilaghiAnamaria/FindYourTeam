@@ -1,10 +1,12 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
+from django.views import generic
 from django.views.generic import TemplateView, CreateView, ListView, UpdateView, DeleteView
 
 from teams.forms import EventForm, LocationForm, PlayerForm, SportForm
@@ -13,6 +15,7 @@ from teams.models import Event, Player, Location, Sport, Photos
 
 class HomeTemplateView(TemplateView):
     template_name = "home/home.html"
+
 
 class EventCreateView(CreateView):
     template_name = "event/create_event.html"
@@ -51,14 +54,14 @@ class PlayerCreateView(CreateView):
     model = Player
     form_class = PlayerForm
     success_url = reverse_lazy("list_of_players")  # unde se duce dupa ce dam submit
-    # permission_required = 'player.add_player'
+    # permission_required = 'user.add_player'
 
 
 class PlayerListView(ListView):
     template_name = "player/list_of_players.html"
     model = Player
     context_object_name = "all_players"
-    # permission_required = 'player.add_player'
+    # permission_required = 'user.add_player'
 
 class PlayerUpdateView(UpdateView):
     template_name = 'player/update_player.html'
@@ -100,7 +103,7 @@ class LocationUpdateView(UpdateView):
 
 
 class LocationDeleteView(DeleteView):
-    template_name = 'location/delete_location'
+    template_name = 'location/delete_location.html'
     model = Location
     success_url = reverse_lazy('list_of_locations')
 
@@ -170,8 +173,33 @@ def player_image_view(request):
             return redirect('success')
     else:
         form = PlayerForm()
-    return render(request, 'image_upload.html', {'form': form})
+    return render(request, 'player/image_upload.html', {'form': form})
 
 
 def success(request):
     return HttpResponse('successfully uploaded')
+
+
+class CalendarViewNew(LoginRequiredMixin, generic.View):
+    login_url = "accounts:signin"
+    template_name = "calendarapp/calendar.html"
+    form_class = EventForm
+
+    def get(self, request, *args, **kwargs):
+        forms = self.form_class()
+        events = Event.objects.get_all_events(user=request.user)
+        events_month = Event.objects.get_running_events(user=request.user)
+        event_list = []
+        # start: '2020-09-16T16:00:00'
+        for event in events:
+            event_list.append(
+                {
+                    "title": event.title,
+                    "start": event.start_time.strftime("%Y-%m-%dT%H:%M:%S"),
+                    "end": event.end_time.strftime("%Y-%m-%dT%H:%M:%S"),
+
+                }
+            )
+        context = {"form": forms, "events": event_list,
+                   "events_month": events_month}
+        return render(request, self.template_name, context)

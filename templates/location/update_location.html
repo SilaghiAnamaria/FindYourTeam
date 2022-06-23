@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 {% block title %}Actualizare pentru locaţia {{ location.nume }} {% endblock %}
 {% block content %}
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
+       <div class="container-fluid mt-5 pt-5">
+
+         <div class="row mt-5 pt-5">
+            <div class="col-md-4 offset-md-4">
                 <div class="card">
-                    <div class="card-header text-center">
+                    <div class="shadow-sm p-3 mb-5 text-center rounded" style="background-color: #F8D486;">
+
                         <h3> Actualizare - {{ location.nume }}</h3>
                     </div>
                     <form method="post">

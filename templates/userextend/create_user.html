@@ -2,28 +2,28 @@
 
 {% block title %} Intrare in cont {% endblock %}
 {% block content %}
-<div class="container-fluid">
-<div class="row">
-    <div class="col-md-3 offset-md-4">
-        <div class="card" style="margin-top:10%">
-            <div class="card-header">
-                <h4 class="text-center"> Crează un cont nou</h4>
+    <div class="container-fluid">
+        <div class="row g-5 mt-5 pt-5">
+            <div class="col-md-3 offset-md-4">
+                <div class="card" style="margin-top:5%">
+                    <div class="card-header">
+                        <h4 class="text-center"> Crează un cont nou</h4>
+                    </div>
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="card-body">
+                            {{ form.as_p }}
+                        </div>
+                        <div class="card-footer text-center">
+                            <button type="submit" class="btn btn-success">
+                                Salvează un cont nou
+                            </button>
+                            <a href="{% url 'home' %}" class="btn btn-warning">Anulare</a>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <form method="post">
-                {% csrf_token %}
-                <div class="card-body">
-                    {{ form.as_p }}
-                </div>
-                <div class="card-footer text-center">
-                    <button type="submit" class="btn btn-success">
-                        Salvează un nou cont
-                    </button>
-                    <a href="{% url 'home' %}" class="btn btn-warning">Anulare</a>
-                </div>
-            </form>
         </div>
     </div>
-</div>
-</div>
 
 {% endblock %}

@@ -1,13 +1,64 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block title %} Home {% endblock %}
-{% block content %}
+{% block body %}
+    <body>
+    <style>
+        .bg-img {
+            background-image: url("{% static 'css/img/background.jpg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            max-width: 10vw;
+
+        }
+
+    </style>
+        {% include "navbar.html" %}
+        <div class="bg-img mt-5 pt-5">
+        </div>
+        </body>
 
 
-<body>
-<div class="bg-img">
-    <img src="{% static 'css/img/background.jpg' %}" style="width:2760px">
-</div>
-</body>
+    <footer>
 
-{% endblock %}
+        <div class="col-md-12 offset-md-2">
+            <div class="row mb-md-12 text-white border-bottom pb-lg-2">
+                <div class="col-md-4 col-6 px-5">
+                    <div class="footer_link_block">
+                        <p>Termeni şi condiţii</p>
+                        <p>Sugestii</p>
+                        <p>Conversaţii</p>
+                    </div>
+                </div>
+                <div class="col-md-2 col-4 px-5">
+                    <a href="https://github.com/SilaghiAnamaria/FindYourTeam" target="_blank"
+                       class="text-white text-decoration-none">
+                        <i class="fa fa-github-square" style="font-size:1.5em"></i></i> <span
+                            style="font-family: Quicksand; font-size: 1.2em">GitHub</span></a> <br>
+                    <a href="https://facebook.com" target="_blank" class="text-white  text-decoration-none">
+                        <i class="fa-brands fa-facebook" style="font-size:1.5em"></i> <span
+                            style="font-family: Quicksand; font-size: 1.2em">Facebook</span></a> <br>
+                    <a href="https://wa.me/+40722102345" target="_blank"
+                       class="text-white  text-decoration-none pt-1">
+                        <i class="fa-brands fa-whatsapp" style="font-size:1.5em"></i><span
+                            style="font-family: Quicksand; font-size: 1.2em">Whatsapp</span></a>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="navbar-text pull-right">
+
+            <div class="row">
+                <p class="text-center text-white py-1">Copyright &copy; {% now 'M Y' %} -
+                    Anamaria Silaghi</p>
+            </div>
+
+        </div>
+
+    </footer>
+
+{% endblock body %}
