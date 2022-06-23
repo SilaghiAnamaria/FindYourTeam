@@ -123,8 +123,8 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS=[os.path.join(BASE_DIR,"static")]
 LOGOUT_REDIRECT_URL = 'home'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'static/playerPicture')
-# MEDIA_URL = '/playerPicture/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/playerPicture')
+MEDIA_URL = '/playerPicture/'
 
 
 # Default primary key field type
