@@ -26,6 +26,7 @@ urlpatterns = [
     path('delete-location/<int:pk>/', views.LocationDeleteView.as_view(), name='delete_location'),
     path('delete-user/<int:pk>/', views.PlayerDeleteView.as_view(), name='delete_player'),
     path('list_of_photos/', views.PhotosListView.as_view(), name="list_of_photos"),
-    path('calendar/', views.CalendarViewNew.as_view(), name='calendar'),
+    path('image-upload/', views.PhotosListView.as_view(), name='image_upload')
+
 
 ]

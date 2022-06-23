@@ -1,8 +1,10 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.mixins import LoginRequiredMixin
+
+
 from django.contrib.auth.models import User
+
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
@@ -180,26 +182,26 @@ def success(request):
     return HttpResponse('successfully uploaded')
 
 
-class CalendarViewNew(LoginRequiredMixin, generic.View):
-    login_url = "accounts:signin"
-    template_name = "calendarapp/calendar.html"
-    form_class = EventForm
-
-    def get(self, request, *args, **kwargs):
-        forms = self.form_class()
-        events = Event.objects.get_all_events(user=request.user)
-        events_month = Event.objects.get_running_events(user=request.user)
-        event_list = []
-        # start: '2020-09-16T16:00:00'
-        for event in events:
-            event_list.append(
-                {
-                    "title": event.title,
-                    "start": event.start_time.strftime("%Y-%m-%dT%H:%M:%S"),
-                    "end": event.end_time.strftime("%Y-%m-%dT%H:%M:%S"),
-
-                }
-            )
-        context = {"form": forms, "events": event_list,
-                   "events_month": events_month}
-        return render(request, self.template_name, context)
+# class CalendarViewNew(LoginRequiredMixin, generic.View):
+#     login_url = "accounts:signin"
+#     template_name = "calendarapp/calendar.html"
+#     form_class = EventForm
+#
+#     def get(self, request, *args, **kwargs):
+#         forms = self.form_class()
+#         events = Event.objects.get_all_events(user=request.user)
+#         events_month = Event.objects.get_running_events(user=request.user)
+#         event_list = []
+#         # start: '2020-09-16T16:00:00'
+#         for event in events:
+#             event_list.append(
+#                 {
+#                     "title": event.title,
+#                     "start": event.start_time.strftime("%Y-%m-%dT%H:%M:%S"),
+#                     "end": event.end_time.strftime("%Y-%m-%dT%H:%M:%S"),
+#
+#                 }
+#             )
+#         context = {"form": forms, "events": event_list,
+#                    "events_month": events_month}
+#         return render(request, self.template_name, context)

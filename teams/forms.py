@@ -2,7 +2,7 @@ from calendar import calendar
 
 from django import forms
 
-from django.forms import TextInput, Select, Textarea, ImageField, ModelForm, DateInput
+from django.forms import TextInput, Select, Textarea, ImageField, DateInput
 from teams.models import Player, Location, Event, Sport
 
 
@@ -39,12 +39,6 @@ class PlayerForm(forms.ModelForm):
             "descriere": Textarea(attrs={"placeholder": "Faceti-va o descriere", "class": "form-control"}),
 
         }
-
-
-class PlayerImageForm(forms.ModelForm):
-    class Meta:
-        model = Player
-        fields = ['nume', 'poza']
 
 
 

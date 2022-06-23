@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure--z(q9rhf+3jo9tkzm5s&h0u@dm4sd_iz4lrwkume7h00@39l25
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['findyourteam.pythonanywhere.com', '127.0.0.1']
 
 
 # Application definition
@@ -124,6 +124,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS=[os.path.join(BASE_DIR,"static")]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/playerPicture')
 MEDIA_URL = '/playerPicture/'
+LOGOUT_REDIRECT_URL = 'home'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
