@@ -10,7 +10,7 @@ class EventFilters(django_filters.FilterSet):
 
     class Meta:
         model = Event
-        fields = ['gender', 'first_name', 'last_name',  'start_date_time__gte', 'start_date_time__lte', 'end_date', 'activ']
+        fields = "__all__"
 
 
     def __init__(self, *args, **kwargs):
