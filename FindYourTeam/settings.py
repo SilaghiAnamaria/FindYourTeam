@@ -122,9 +122,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS=[os.path.join(BASE_DIR,"static")]
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/playerPicture')
-MEDIA_URL = '/playerPicture/'
 LOGOUT_REDIRECT_URL = 'home'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'static/playerPicture')
+# MEDIA_URL = '/playerPicture/'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
