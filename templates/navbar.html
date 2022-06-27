@@ -5,10 +5,10 @@
         <a class="navbar-brand" href="{% url 'home' %}">
             <img src="{% static 'css/img/logo.jpg' %}" style="width:180px;height:120px;"
                  data-toggle="tooltip" alt="Find your Team"
-                 title="FindYourTeam"><br style="color: #006b1b">
+                 title="FindYourTeam"><br>
             *FindYourTeam
         </a>
-        <div class="col-lg-2 offset-1">
+{#        <div class="col-lg-2 offset-1">#}
         {% if request.user.is_authenticated %}
             <a href="{% url 'logout' %}">
                 <i class="fa-solid fa-right-from-bracket" style="font-size:1.5em; color:red"></i>
@@ -21,7 +21,7 @@
             </a>
 
         {% endif %}
-        </div>
+{#        </div>#}
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-label="Toggle navigation" aria-expanded="false">
