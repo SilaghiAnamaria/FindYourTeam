@@ -1,0 +1,30 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-md sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="{% static 'css/img/logo.jpg' %}" style="width:180px;height:120px;"
+                 data-toggle="tooltip" alt="Find your Team"
+                 title="FindYourTeam"><br>
+            *FindYourTeam
+        </a>
+
+        </div>
+
+        <div class="col-md-1">
+            {% if request.user.is_user %}
+                <a href="{% url 'logout' %}">
+                    <i class="fa-solid fa-right-from-bracket" style="font-size:1.5em; color:red" role="button"></i>
+                </a>
+            {% else %}
+                <a class="navbar-brand" href="{% url 'home' %}"></a>
+
+                <a href="{% url 'login' %}">
+                    <i class="fa-regular fa-user" style="font-size: 1.5em; color:dimgrey"></i>
+                </a>
+
+            {% endif %}
+        </div>
+
+    </div>
+</nav>

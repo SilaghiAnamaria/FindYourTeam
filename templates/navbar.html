@@ -1,32 +1,21 @@
 {% load static %}
 
-<nav class="navbar navbar-expand-md sticky-top" data-mdb-toggle="collapse">
-    <div class="container-fluid">
+<nav class="navbar navbar-expand-md sticky-top">
+    <span class="col-lg-2">
         <a class="navbar-brand" href="{% url 'home' %}">
             <img src="{% static 'css/img/logo.jpg' %}" style="width:180px;height:120px;"
-                 data-toggle="tooltip" alt="Find your Team"
+                 alt="Find your Team"
                  title="FindYourTeam"><br>
             *FindYourTeam
         </a>
-{#        <div class="col-lg-2 offset-1">#}
-        {% if request.user.is_authenticated %}
-            <a href="{% url 'logout' %}">
-                <i class="fa-solid fa-right-from-bracket" style="font-size:1.5em; color:red"></i>
-            </a>
-        {% else %}
-            <a class="navbar-brand p-sm-6" href="{% url 'home' %}"></a>
-
-            <a href="{% url 'login' %}">
-                 <i class="fa-regular fa-user" style="font-size: 1.5em; color:dimgrey"></i>
-            </a>
-
-        {% endif %}
-{#        </div>#}
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-label="Toggle navigation" aria-expanded="false">
+    </span>
+    <div class="container-fluid">
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation" aria-controls="navbarToggleExternalContent"
+                style="border: black">
             <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown">
@@ -66,7 +55,7 @@
                     </ul>
                 </li>
 
-               <li class="nav-item dropdown">
+                <li class="nav-item dropdown">
                     <a class="nav-link active dropdown text-dark fw-bold"
                        data-bs-toggle="dropdown" id="navbarDropdown" role="button"
                        aria-expanded="false">
@@ -100,16 +89,31 @@
                             <a class="dropdown-item" href="{% url "list_of_sports" %}">Lista cu sporturi</a>
                         </li>
                     </ul>
-                </li>
-            </ul>
-            <span>
 
+
+                </li>
+            <div>
                 <a class="nav-link active dropdown text-dark fw-bold" href="{% url "list_of_photos" %}">
                     Galerie
                 </a>
+                </div>
+            </ul>
 
-        </span>
+        </div>
 
+        <div class="col-md-1">
+            {% if request.user.is_user %}
+                <a href="{% url 'logout' %}">
+                    <i class="fa-solid fa-right-from-bracket" style="font-size:1.5em; color:red" role="button"></i>
+                </a>
+            {% else %}
+                <a class="navbar-brand" href="{% url 'home' %}"></a>
+
+                <a href="{% url 'login' %}">
+                    <i class="fa-regular fa-user" style="font-size: 1.5em; color:dimgrey"></i>
+                </a>
+
+            {% endif %}
         </div>
 
     </div>
