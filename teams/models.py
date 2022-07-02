@@ -25,7 +25,7 @@ class Event(models.Model):
     city_choices = (("SIBIU", "SIBIU"), ("BRASOV", "BRASOV"), ("CLUJ-NAPOCA", "CLUJ-NAPOCA"))
     sport_type = (("Toate", "Toate"), ("Handbal", "Handbal"), ("Fotbal", "Fotbal"), ("Tenis de camp", "Tenis de camp"))
 
-    nume = models.CharField(max_length=20)
+    nume = models.CharField(max_length=40)
     oras = models.CharField(max_length=30, choices=city_choices)
     gen = models.CharField(max_length=10, choices=gender_choices)
     de_la = models.DateTimeField(auto_now_add=True)
@@ -61,9 +61,9 @@ class Player(models.Model):
 
 class Location(models.Model):
 
-    nume = models.CharField(max_length=60)
+    nume = models.CharField(max_length=100)
     oras = models.CharField(max_length=20)
-    adresa = models.CharField(max_length=30)
+    adresa = models.CharField(max_length=100)
     descriere = models.TextField(max_length=1000)
     creat_in = models.DateTimeField(auto_now_add=True)
     actualizat_in = models.DateTimeField(auto_now=True)

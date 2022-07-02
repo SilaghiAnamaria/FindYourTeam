@@ -1,13 +1,12 @@
 {% load static %}
 
-<nav class="navbar navbar-expand-md sticky-top">
-    <span class="col-lg-2">
+<nav class="navbar navbar-expand sticky-top">
+    <span class="col-md-3">
         <a class="navbar-brand" href="{% url 'home' %}">
             <img src="{% static 'css/img/logo.jpg' %}" style="width:180px;height:120px;"
                  alt="Find your Team"
                  title="FindYourTeam"><br>
-            *FindYourTeam
-        </a>
+           </a>
     </span>
     <div class="container-fluid">
         <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -17,7 +16,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-2">
                 <li class="nav-item dropdown">
                     <a class="nav-link active dropdown text-dark fw-bold"
                        data-bs-toggle="dropdown" id="navbarDropdown" role="button"
