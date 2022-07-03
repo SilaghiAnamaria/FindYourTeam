@@ -1,22 +1,21 @@
 {% load static %}
 
-<nav class="navbar navbar-expand sticky-top">
-    <span class="col-md-3">
-        <a class="navbar-brand" href="{% url 'home' %}">
-            <img src="{% static 'css/img/logo.jpg' %}" style="width:180px;height:120px;"
-                 alt="Find your Team"
-                 title="FindYourTeam"><br>
-           </a>
-    </span>
+<nav class="navbar navbar-expand-lg sticky-top">
     <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="{% static 'css/img/logo.jpg' %}" style="width:200px;"
+                 alt="Find your Team">
+        </a>
+
+
         <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation" aria-controls="navbarToggleExternalContent"
                 style="border: black">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-2">
+        <div id="navbarSupportedContent" class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown">
                     <a class="nav-link active dropdown text-dark fw-bold"
                        data-bs-toggle="dropdown" id="navbarDropdown" role="button"
@@ -32,7 +31,6 @@
                         <li>
                             <a class="dropdown-item" href="{% url "list_of_players" %}">Lista cu jucători</a>
                         </li>
-
                     </ul>
                 </li>
 
@@ -43,7 +41,7 @@
                         Evenimente
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:beige">
-                        {% if perms.event.add_event %}
+                        {% if request.user.is_user %}
                             <li>
                                 <a class="dropdown-item" href="{% url 'create_event' %}">Adaugă un eveniment</a>
                             </li>
@@ -53,7 +51,6 @@
                         </li>
                     </ul>
                 </li>
-
                 <li class="nav-item dropdown">
                     <a class="nav-link active dropdown text-dark fw-bold"
                        data-bs-toggle="dropdown" id="navbarDropdown" role="button"
@@ -71,7 +68,6 @@
                         </li>
                     </ul>
                 </li>
-
                 <li class="nav-item dropdown">
                     <a class="nav-link active dropdown text-dark fw-bold"
                        data-bs-toggle="dropdown" id="navbarDropdown" role="button"
@@ -88,14 +84,12 @@
                             <a class="dropdown-item" href="{% url "list_of_sports" %}">Lista cu sporturi</a>
                         </li>
                     </ul>
-
-
                 </li>
-            <div>
-                <a class="nav-link active dropdown text-dark fw-bold" href="{% url "list_of_photos" %}">
-                    Galerie
-                </a>
-                </div>
+                <li>
+                    <a class="nav-link active dropdown text-dark fw-bold" href="{% url "list_of_photos" %}">
+                        Galerie
+                    </a>
+                </li>
             </ul>
 
         </div>
@@ -103,7 +97,7 @@
         <div class="col-md-1">
             {% if request.user.is_user %}
                 <a href="{% url 'logout' %}">
-                    <i class="fa-solid fa-right-from-bracket" style="font-size:1.5em; color:red" role="button"></i>
+                    <i class="fa-solid fa-right-from-bracket" style="font-size:1.5em; color:#a85757" role="button"></i>
                 </a>
             {% else %}
                 <a class="navbar-brand" href="{% url 'home' %}"></a>
@@ -111,9 +105,9 @@
                 <a href="{% url 'login' %}">
                     <i class="fa-regular fa-user" style="font-size: 1.5em; color:dimgrey"></i>
                 </a>
-
             {% endif %}
-        </div>
 
+        </div>
+    </div>
     </div>
 </nav>
