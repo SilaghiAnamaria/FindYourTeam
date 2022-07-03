@@ -1,5 +1,5 @@
-import form as form
-from django.contrib import messages
+
+
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 
