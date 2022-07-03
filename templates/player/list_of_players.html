@@ -21,44 +21,7 @@
                                 <h5 class="card-title"><strong>{{ player.porecla }}, {{ player.varsta }} ani</strong>
                                 </h5>
                                 <p class="card-text">{{ player.descriere }}</p>
-                                {% if perms.player.add_player %}
-                                    <a href="{% url 'update_player' player.id %}" class="btn btn-info">Actualizare</a>
-                                    <a href="{% url 'delete_player' player.id %}" class="btn btn-danger">Stergere</a>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                        <div class="card w3-hover-border-blue border-white bg-light h-100">
-                            {% if player.poza %}
-                                <img class="card-img-top" src="{{ player.poza.url }}" alt="Jucător">
-                            {% else %}
-                                <img
-                                        class="card-img-top" src="/playerPicture/AS.jpg" alt="Jucător">
-                            {% endif %}
-                            <div class=" card-body">
-                                <h5 class="card-title"><strong>{{ player.porecla }}, {{ player.varsta }} ani</strong>
-                                </h5>
-                                <p class="card-text">{{ player.descriere }}</p>
-                                {% if perms.player.add_player %}
-                                    <a href="{% url 'update_player' player.id %}" class="btn btn-info">Actualizare</a>
-                                    <a href="{% url 'delete_player' player.id %}" class="btn btn-danger">Stergere</a>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                        <div class="card w3-hover-border-blue border-white bg-light h-100">
-                            {% if player.poza %}
-                                <img class="card-img-top" src="{{ player.poza.url }}" alt="Jucător">
-                            {% else %}
-                                <img
-                                        class="card-img-top" src="/playerPicture/LS.JPG" alt="Jucător">
-                            {% endif %}
-                            <div class=" card-body">
-                                <h5 class="card-title"><strong>{{ player.porecla }}, {{ player.varsta }} ani</strong>
-                                </h5>
-                                <p class="card-text">{{ player.descriere }}</p>
+                                <p class="card-text"><strong>{{ player.oras }}</strong></p>
                                 {% if perms.player.add_player %}
                                     <a href="{% url 'update_player' player.id %}" class="btn btn-info">Actualizare</a>
                                     <a href="{% url 'delete_player' player.id %}" class="btn btn-danger">Stergere</a>

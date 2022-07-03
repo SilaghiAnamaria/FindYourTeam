@@ -2,58 +2,89 @@
 {% block title %}Lista cu evenimente{% endblock %}
 
 {% block content %}
-    <div class="container-fluid">
-       <div class="row g-1 mt-3 pt-3">
-            <div class="col-md-10 offset-md-12">
-                 <div class="shadow-sm text-center rounded" style="background-color: #F8D486; margin-top: 5%">
-                     {% if all_events %}
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th>Nume eveniment</th>
-                            <th>Tipul de sport</th>
-                            <th>De la/Pâna la</th>
-                            <th>Dificultate</th>
-                            <th>Gen</th>
-                            <th>Descriere</th>
-                            <th>Localitate</th>
-                            {% if perms.event.add_event %}
-                            <th>Acţiuni</th>
-                                {% endif %}
+{#    <div class="container-fluid">#}
+{#       <div class="row g-1 mt-3 pt-3">#}
+{#            <div class="col-md-10 offset-md-12">#}
+{#                 <div class="shadow-sm text-center rounded" style="background-color: #F8D486; margin-top: 5%">#}
+{#                     {% if all_events %}#}
+{#                    <table class="table">#}
+{#                        <thead>#}
+{#                        <tr>#}
+{#                            <th>Nume eveniment</th>#}
+{#                            <th>Tipul de sport</th>#}
+{#                            <th>De la/Pâna la</th>#}
+{#                            <th>Dificultate</th>#}
+{#                            <th>Gen</th>#}
+{#                            <th>Descriere</th>#}
+{#                            <th>Localitate</th>#}
+{#                            {% if perms.event.add_event %}#}
+{#                            <th>Acţiuni</th>#}
+{#                                {% endif %}#}
 {#                            <th>Nume eveniment</th>#}
 {#                            <th>Descriere eveniment</th>#}
 {#                            <th>De la</th>#}
 {#                            <th>Pana la</th>#}
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {% for event in all_events%}
-                            <tr>
-                                <td>{{ event.nume }}</td>
-                                <td>{{ event.sporturi }}</td>
-                                <td>{{ event.de_la }} {{ event.pana_la }}</td>
-                                <td>{{ event.dificultate }} </td>
-                                <td>{{ event.gen }} </td>
-                                <td>{{ event.descriere }} </td>
-                                <td>{{ event.oras }} </td>
+{#                        </tr>#}
+{#                        </thead>#}
+{#                        <tbody>#}
+{#                        {% for event in all_events%}#}
+{#                            <tr>#}
+{#                                <td>{{ event.nume }}</td>#}
+{#                                <td>{{ event.sporturi }}</td>#}
+{#                                <td>{{ event.de_la }} {{ event.pana_la }}</td>#}
+{#                                <td>{{ event.dificultate }} </td>#}
+{#                                <td>{{ event.gen }} </td>#}
+{#                                <td>{{ event.descriere }} </td>#}
+{#                                <td>{{ event.oras }} </td>#}
 {#                                <td>{{ event.title }} </td>#}
 {#                                <td>{{ event.description }} </td>#}
 {#                                <td>{{ event.start_time }} </td>#}
 {#                                <td>{{ event.end_time }} </td>#}
-                               {% if perms.event.add_event %}
-                                <td>
-                                    <a href="{% url 'update_event' event.id %}" class="btn btn-info">Actualizare</a>
+{#                               {% if perms.event.add_event %}#}
+{#                                <td>#}
+{#                                    <a href="{% url 'update_event' event.id %}" class="btn btn-info">Actualizare</a>#}
+{#                                    <a href="{% url 'delete_event' event.id %}" class="btn btn-danger">Stergere</a>#}
+{##}
+{#                                </td>#}
+{#                            {% endif %}#}
+{#                            </tr>#}
+{#                        {% endfor %}#}
+{#                        </tbody>#}
+{#                    </table>#}
+{#                {% else %}#}
+{#                    <h3 class="text-center">Nu există informaţii</h3>#}
+{#                {% endif %}#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+
+ <div class="container-fluid">
+        <div class="col-md-10 offset-md-1">
+            <div class="row gy-3 mt-1 mb-1">
+                {% for event in all_events %}
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 ">
+                        <div class="card w3-hover-border-blue border-white bg-light h-100" style="font-family: 'Courier New',sans-serif">
+                            <div class="text-center mt-1"><i class="fa-solid fa-volleyball"
+                                                             style="font-size:2em; color: dimgrey"></i>
+                            </div>
+                            <div class=" card-body">
+                                <h3 style="color: darkseagreen; text-transform: capitalize ">{{ event.nume }}</h3>
+                                <p class="card-text"> <strong>{{ event.oras }}</strong>
+                                <p class="card-text"> {{ event.descriere }}
+
+
+                    <div>
+                                    <a href="{% url 'update_event' event.id %}" class="btn btn-info" >Actualizare</a>
                                     <a href="{% url 'delete_event' event.id %}" class="btn btn-danger">Stergere</a>
 
-                                </td>
-                            {% endif %}
-                            </tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
-                {% else %}
-                    <h3 class="text-center">Nu există informaţii</h3>
-                {% endif %}
+                    </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                {% endfor %}
             </div>
         </div>
     </div>

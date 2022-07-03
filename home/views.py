@@ -6,3 +6,5 @@ from teams.models import Event
 
 class HomeTemplateView(TemplateView):
     template_name = "home/home.html"
+
+

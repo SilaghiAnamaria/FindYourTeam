@@ -1,3 +1,4 @@
+import form as form
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
@@ -12,11 +13,12 @@ from django.views import generic
 from django.views.generic import TemplateView, CreateView, ListView, UpdateView, DeleteView
 
 from teams.forms import EventForm, LocationForm, PlayerForm, SportForm
-from teams.models import Event, Player, Location, Sport, Photos
+from teams.models import Event, Player, Location, Sport, UploadImage
 
 
 class HomeTemplateView(TemplateView):
     template_name = "home/home.html"
+
 
 
 class EventCreateView(CreateView):
@@ -24,7 +26,7 @@ class EventCreateView(CreateView):
     model = Event
     form_class = EventForm
     success_url = reverse_lazy("list_of_events")
-    # permission_required = 'event.add_event'
+    permission_required = 'event.add_event'
 
 
 class EventListView(ListView):
@@ -56,14 +58,14 @@ class PlayerCreateView(CreateView):
     model = Player
     form_class = PlayerForm
     success_url = reverse_lazy("list_of_players")  # unde se duce dupa ce dam submit
-    # permission_required = 'user.add_player'
+    permission_required = 'user.add_player'
 
 
 class PlayerListView(ListView):
     template_name = "player/list_of_players.html"
     model = Player
     context_object_name = "all_players"
-    # permission_required = 'user.add_player'
+    permission_required = 'user.add_player'
 
 class PlayerUpdateView(UpdateView):
     template_name = 'player/update_player.html'
@@ -86,7 +88,7 @@ class LocationCreateView(CreateView):
     model = Location
     form_class = LocationForm
     success_url = reverse_lazy("list_of_locations")  # unde se duce dupa ce dam submit
-    # permission_required = 'location.add_location'
+    permission_required = 'location.add_location'
 
 
 
@@ -94,7 +96,7 @@ class LocationListView(ListView):
     template_name = "location/list_of_locations.html"
     model = Location
     context_object_name = "all_locations"
-    # permission_required = 'location.add_location'
+    permission_required = 'location.add_location'
 
 class LocationUpdateView(UpdateView):
     template_name = 'location/update_location.html'
@@ -116,7 +118,7 @@ class SportCreateView(CreateView):
     model = Sport
     form_class = SportForm
     success_url = reverse_lazy("list_of_sports")  # unde se duce dupa ce dam submit
-    # permission_required = 'sport.add_sport'
+    permission_required = 'sport.add_sport'
 
 
 class SportListView(ListView):
@@ -143,7 +145,6 @@ class SportDeleteView(DeleteView):
 class UserExtendCreateView(CreateView):
     template_name = 'userextend/create_user.html'
     model = User
-    form_class = UserCreationForm
     success_url = reverse_lazy('login')
 
 def login_user(request):
@@ -154,15 +155,13 @@ def login_user(request):
         if user is not None:
             login(request, user)
             return redirect("home")
-        else:
-            return redirect('login')
     else:
         return render(request, 'registration/login.html')
 
 
 class PhotosListView(ListView):
     template_name = 'photos_list/list_of_photos.html'
-    model = Photos
+    model = UploadImage
     context_object_name = "all_photos"
 
 
@@ -181,27 +180,3 @@ def player_image_view(request):
 def success(request):
     return HttpResponse('successfully uploaded')
 
-
-# class CalendarViewNew(LoginRequiredMixin, generic.View):
-#     login_url = "accounts:signin"
-#     template_name = "calendarapp/calendar.html"
-#     form_class = EventForm
-#
-#     def get(self, request, *args, **kwargs):
-#         forms = self.form_class()
-#         events = Event.objects.get_all_events(user=request.user)
-#         events_month = Event.objects.get_running_events(user=request.user)
-#         event_list = []
-#         # start: '2020-09-16T16:00:00'
-#         for event in events:
-#             event_list.append(
-#                 {
-#                     "title": event.title,
-#                     "start": event.start_time.strftime("%Y-%m-%dT%H:%M:%S"),
-#                     "end": event.end_time.strftime("%Y-%m-%dT%H:%M:%S"),
-#
-#                 }
-#             )
-#         context = {"form": forms, "events": event_list,
-#                    "events_month": events_month}
-#         return render(request, self.template_name, context)

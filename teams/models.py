@@ -4,19 +4,6 @@ from django.db import models
 
 from django.contrib.auth.models import User
 
-from django.urls import reverse
-
-
-# class EventAbstract(models.Model):
-#     """ Event abstract model """
-#
-#     class Meta:
-#         abstract = True
-#
-class EventManager(models.Manager):
-    def get_query_set(self):
-        now = datetime.now()
-        return super(EventManager,self).get_query_set().filter(date__gte=now)
 
 class Event(models.Model):
 
@@ -26,7 +13,7 @@ class Event(models.Model):
     sport_type = (("Toate", "Toate"), ("Handbal", "Handbal"), ("Fotbal", "Fotbal"), ("Tenis de camp", "Tenis de camp"))
 
     nume = models.CharField(max_length=40)
-    oras = models.CharField(max_length=30, choices=city_choices)
+    oras = models.TextField(max_length=30,choices=city_choices)
     gen = models.CharField(max_length=10, choices=gender_choices)
     de_la = models.DateTimeField(auto_now_add=True)
     pana_la = models.DateTimeField(auto_now_add=True)
@@ -42,12 +29,13 @@ class Event(models.Model):
 
 class Player(models.Model):
     gender_choices = (("man", "Bărbaţi"), ("women", "Femei"))
+    city_choices = (("SIBIU", "SIBIU"), ("BRASOV", "BRASOV"), ("CLUJ-NAPOCA", "CLUJ-NAPOCA"))
 
     nume = models.CharField(max_length=20)
     prenume = models.CharField(max_length=20)
     porecla = models.CharField(max_length=20, null=True, blank=True)
     varsta = models.IntegerField()
-    oras = models.TextField(max_length=30)
+    oras = models.TextField(max_length=30, choices=city_choices)
     descriere = models.TextField(max_length=1000, null=True,blank=True)
     gen = models.CharField(max_length=10, choices=gender_choices)
     poza = models.ImageField(upload_to='static/playerPicture/', null=True,blank=True)
@@ -60,9 +48,11 @@ class Player(models.Model):
 
 
 class Location(models.Model):
+    city_choices = (("SIBIU", "SIBIU"), ("BRASOV", "BRASOV"), ("CLUJ-NAPOCA", "CLUJ-NAPOCA"))
+
 
     nume = models.CharField(max_length=100)
-    oras = models.CharField(max_length=20)
+    oras = models.TextField(max_length=30, choices=city_choices)
     adresa = models.CharField(max_length=100)
     descriere = models.TextField(max_length=1000)
     creat_in = models.DateTimeField(auto_now_add=True)
@@ -74,10 +64,11 @@ class Location(models.Model):
 
 class Sport(models.Model):
     gender_choices = (("man", "Bărbaţi"), ("women", "Femei"))
+    city_choices = (("SIBIU", "SIBIU"), ("BRASOV", "BRASOV"), ("CLUJ-NAPOCA", "CLUJ-NAPOCA"))
 
-    nume = models.CharField(max_length=10)
+    nume = models.CharField(max_length=25)
     locatie = models.CharField(max_length=30, null=True, blank=True)
-    oras = models.CharField(max_length=30)
+    oras = models.TextField(max_length=30, choices=city_choices)
     descriere = models.TextField(max_length=1000)
     numar_minim_de_jucatori = models.IntegerField()
     numar_maxim_de_jucatori = models.IntegerField()
@@ -120,32 +111,7 @@ class UserExtendCreateView(User):
         return f"{self.nume} {self.prenume}"
 
 
-class Photos(models.Model):
+class UploadImage(models.Model):
     nume = models.ImageField()
 
-    # class EventAbstract(models.Model):
-    #     """ Event abstract model """
-    #
-    #     class Meta:
-    #         abstract = True
-    #
 
-    #class Event(models.Model):
-    #""" Event model """
-
-        #
-        # title = models.CharField(max_length=200, unique=True)
-        # description = models.TextField()
-        # start_time = models.DateTimeField(null=True)
-        # end_time = models.DateTimeField(null=True)
-        #
-        # def __str__(self):
-        #     return self.title
-
-        # def get_absolute_url(self):
-        #     return reverse("calendarapp:event-detail", args=(self.id,))
-        #
-        # @property
-        # def get_html_url(self):
-        #     url = reverse("calendarapp:event-detail", args=(self.id,))
-        #     return f'<a href="{url}"> {self.title} </a>'
