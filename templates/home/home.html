@@ -9,8 +9,10 @@
             background-image: url("{% static 'img/carousel_home/background.jpg' %}");
             background-size: cover;
             background-repeat: no-repeat;
-            min-height: 100vh;
-            max-width: 100vw;
+            min-height: 90vh;
+            max-width: 90vw;
+            font-size: 1.5em;
+            font-family: Helvetica, fantasy;
 
         }
 
@@ -18,9 +20,219 @@
     </style>
     {% include "navbar.html" %}
 
-    <div class="collapse-toggle">
-        <div class="image bg-img">
-            <div class="col-md-3 card">
+    <div class="container p-5 my-5 bg-img">
+        <div class="row">
+            <div id="accordion">
+                <button type="button" class="btn btn-lg btn-warning text-dark fw-bold">Bine de ştiut ...</button>
+                <div class="card col-md-8 offset-2">
+                    <div class="card-header text-bold" style="color:whitesmoke; background-color:bisque">
+
+                        <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
+                           <h3>Beneficiile sportului din punct de vedere psihic</h3>
+                        </a>
+                    </div>
+                    <div id="collapseOne" class="collapse" data-bs-parent="#accordion">
+                        <div class="card-body" style="background-color: lemonchiffon">
+
+                            <p>”Mens sana in corpore sano”. Un om care are un stil de viață sănătos (sport +
+                                alimentație) cu siguranță are și mintea, precum și emoțiile într-o stare mai bună.
+                                Sportul te ajută să îți găsești o motivație de a trece peste perioade mai grele, te
+                                deconectează pentru un moment de la stres și presiune.</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card col-md-8 offset-2 border">
+                    <div class="card-header" style="color:whitesmoke; background-color:bisque">
+
+                        <a class="btn" data-bs-toggle="collapse" href="#collapseTwo">
+                            <h3>Ce mărime are o minge de fotbal?</h3>
+                        </a>
+                    </div>
+                    <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
+                        <div class="card-body" style="background-color: lemonchiffon">
+                            Mingile de fotbal sunt pe mărimi, asociate anumitor circumferințe (cm). Această informație
+                            este
+                            foarte utilă pentru alegerea unui produs potrivit pentru joaca celor mici, sau pentru orele
+                            de
+                            fotbal de la balon, privind mai departe de brand sau cromatică. Așadar, iată ce spune
+                            mărimea
+                            unei mingi de fotbal despre dimensiunile și utilitatea acesteia:
+                            <h4> MĂRIMEA 1 / CIRCUMFERINŢĂ: 18-22 cm</h4>
+                            <p>Cunoscută și sub denumirea de “minge pentru fotbal mini”, aceasta este utilizată la
+                                antrenamente pentru dezvoltarea tacticilor de joc, sau pentru agrement, de către
+                                pasionații
+                                acestui sport.</p>
+                            <h4> MĂRIMEA 2 / CIRCUMFERINŢĂ: 25-50 cm</h4>
+
+                            <p> O minge de fotbal nr. 2 este, de obicei, utilizată în partidele disputate la grupele de
+                                vârstă sub 5 ani. De asemenea, la fel ca în cazul mingilor nr. 1, cele de față sunt
+                                utilizate în timpul antrenamentelor de adulți, pentru dezvoltarea jocului de
+                                picioare.</p>
+                            <h4> MĂRIMEA 3 / CCIRCUMFERINŢĂ: 57-60 cm</h4>
+
+                            <p> Este cea mai mică dimensiune de minge oficială, fiind utilizată în timpul partidelor de
+                                fotbal disputate la grupele de vârstă sub 8 ani.</p>
+                            <h4> MĂRIMEA 4 / CIRCUMFERINŢĂ: 63 - 66 cm</h4>
+
+                            <p> Mingea de fotbal nr. 4 este utilizată pentru disputarea partidelor la grupele de vârstă
+                                8-12
+                                ani, în cadrul antrenamentelor pentru jucătorii adulți, dar și pentru agrement, în cazul
+                                jucătorilor amatori.</p>
+                            <h4> MĂRIMEA 5 / CIRCUMFERINŢĂ: 68 - 70 cm</h4>
+
+                            <p> Nr. 5 este cea mai mare mărime a unei mingi de fotbal oficiale, având dimensiunile
+                                standard
+                                pentru toate meciurile disputate la grupele de vârstă 12+ ani, precum și pentru toate
+                                partidele de fotbal disputate la nivel profesionist.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card col-md-8 offset-2 border">
+                    <div class="card-header" style="color:whitesmoke; background-color:bisque">
+                        <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseThree">
+                           <h3>Cum îţi protejezi articulaţiile şi musculatura în timpul sportului?</h3>
+                        </a>
+                    </div>
+                    <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
+                        <div class="card-body" style="background-color: lemonchiffon">
+                            <h4>ACORDĂ ATENŢIE ÎNCĂLZIRII</h4>
+                            <p>Indiferent de sportul pe care îl practici, sesiunile de antrenament trebuie să înceapă cu
+                                15-20 de minute de încălzire. Acordă atenție în special articulațiilor tale. Combină
+                                exercițiile ușoare de cardio cu exerciții simple de stretching, cum ar fi:
+                                Balansările pe călcâi – vârf – călcâi, pentru încălzirea gleznelor;
+                                Rotirile de bazin pentru mobilitatea spatelui, a zonei lombare;
+                                Rotirile de glezne, coate, genunchi;
+                                Flexiile zottman, flexiile hammer, flexiile crucifix, dar fără gantere sau greutăți.</p>
+                            <h4>HIDRATEAZĂ-TE CORECT</h4>
+                            <p> Hidratarea corectă în timpul antrenamentului nu te ajută doar să arzi mai repede
+                                caloriile,
+                                să scapi de kilogramele în plus, ci și să îți menții articulațiile sănătoase. Consumul
+                                de
+                                apă susține lubrifierea articulațiilor, menține un aport echilibrat de nutrienți la
+                                nivel
+                                articular și ajută la eliminarea toxinelor din întregul organism. Atunci când bei apă,
+                                ia
+                                guri mici, dar dese, și evită să bei o cantitate mare într-un timp scurt. Astfel, vei
+                                putea
+                                îmbunătăți și digestia. </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card col-md-8 offset-2 border">
+                    <div class="card-header" style="color:whitesmoke; background-color:bisque">
+                        <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseFour">
+                          <h3>7 motive pentru care Tenisul este un sport excelent pentru sănătatea fizică și mentală.</h3>
+                        </a>
+                    </div>
+                    <div id="collapseFour" class="collapse" data-bs-parent="#accordion">
+                        <div class="card-body" style="background-color: lemonchiffon">
+                            <h4> TENISUL ÎȚI ÎMBUNĂTĂȚEȘTE COORDONAREA</h4>
+
+                            <P>Sistemul musculo-scheletic (mușchii și articulațiile) se activează și lucrează intens.
+                                Biomecanica corpului implică utilizarea articulațiilor și a mușchilor importanți.
+                                Lucrându-i
+                                în
+                                paralel, îți îmbunățești coordonarea, dexteritatea, chiar și viteza și
+                                flexibilitatea.</P>
+
+                            <h4> ESTE BENEFIC PENTRU SĂNĂTATEA INIMII</h4>
+
+                            Tenisul este un sport de rezistență: accelerări repetate, recuperări, propulsări. Ce efecte
+                            au
+                            toate aceste mișcări asupra corpului?
+
+                            Tenisul implică multiple beneficii pentru sistemul cardiovascular (inimă și plămâni).
+                            Practicând
+                            mai mult de 2h30 pe săptămână, vei reduce 50% din riscurile de boli cardio-vasculare,
+                            deoarece
+                            tenisul ajută la scăderea tensiunii arteriale și a depozitelor de grăsime din vasele de
+                            sânge,
+                            care devin aproape inexistente.
+
+                            O adevărată gură de aer proaspăt pentru corpul tău! Consultă cele 3 exerciții-cheie pentru
+                            un
+                            progres optim în rezistență și anduranță.
+                            <h6>EXERCIȚII DE INTELIGENȚĂ ȘI CONCENTRARE </h6>
+
+                            Sportul=fizic?
+
+                            Dacă în general sportul te duce cu gândul la abilități fizice, unele sporturi te vor ajuta
+                            să
+                            îți dezvolți intelectul și concentrarea. Tenisul face parte din această categorie.
+
+                            Să urmărești mingea timp de o oră necesită concentrare continuă. Creierul este atent la
+                            fiecare
+                            mișcare și trebuie să analizeze în mod constant situații și traiectorii noi. Dar dincolo de
+                            concentrare, ai nevoie să găsești soluția cea mai bună (strategia) pentru a-ți contracara
+                            adversarul. Această provocare stabilește conexiuni neuronale puternice, care ajută la
+                            dezvoltarea creierului.
+
+                            <h4>CONSUMI CALORII</h4>
+
+                            Precum alte sporturi, tenisul te ajută să consumi calorii. Pierzi între 420 și 600 de
+                            calorii pe
+                            oră, în funcție de constituție. În funcție de greutate, numărul de calorii consumate poate
+                            varia
+                            (420 cal/H <55 kg, 620cal/H> 85kg). Acest efort este echivalent cu aproximativ o oră de
+                            înot, de
+                            ciclism sau o oră de alergare în ritm moderat.
+
+                            Psihicul, un cuvânt folosit de multe ori atunci când vine vorba de tenis. Pe bună dreptate!
+                            Tenisul este sportul potrivit pentru a-ți lucra caracterul și psihicul. Această luptă
+                            constantă
+                            împotriva adversarului, gestionarea emoțiilor pentru a nu arăta tensiunea simțită, lipsa de
+                            încredere, starea de spirit – toate aceste elemente îți construiesc personalitatea.
+
+                            Tenisul necesită reacții instantanee și acțiuni bine gândite – legătura dintre cele două
+                            este
+                            puternică și nu poate fi separată.
+                            <h4>TENISUL ÎȚI DEZVOLTĂ RĂBDAREA </h4>
+
+                            Meciurile pot fi lungi, nu te precipita! Tenisul este un sport care se învață în timp. A
+                            lovi
+                            mingea în momentul potrivit, în locul potrivit rămâne cea mai mare provocare în tenis. Cu
+                            cât
+                            joci mai mult, cu atât vei fi mai bun.
+
+                            Răbdarea este o artă, ca și tenisul!
+                            <h4> OXIGENEAZĂ CREIERUL </h4>
+
+                            Nu e nevoie să fii la 2000 m altitudine pentru a-ți oxigena corpul și mintea. Tenisul îți
+                            aduce
+                            aceeași senzație! Lovește cu putere, apoi aleargă după minge, fă efort! În plus, e un atu
+                            pentru
+                            sistemul tău respirator.
+
+                        </div>
+                    </div>
+                </div>
+                <div class="card col-md-8 offset-2 border">
+                    <div class="card-header" style="color:whitesmoke; background-color:bisque">
+                        <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseFive">
+                            <h2> Știați că…? </h2>
+                        </a>
+                    </div>
+                    <div id="collapseFive" class="collapse-show" data-bs-parent="#accordion">
+                        <div class="card-body" style="background-color: lemonchiffon">
+
+                            A lucra în paralel plămânii, inima, mușchii și articulațiile aduce numeroase beneficii. Sunt
+                            produse peptide (polimeri de aminoacizi sau proteine) care te vor ajuta în repararea
+                            leziunilor
+                            musculare, inflamațiilor cronice și care permit o mai bună regenerare a țesuturilor.
+                            Sistemul
+                            endocrin devine tot mai puternic.
+                            Organismul progresează în timpul jocului de tenis. Sistemul musculo-scheletic (mușchii și
+                            articulațiile) se activează și lucrează la un nivel ridicat. Biomecanica corpului implică
+                            utilizarea articulațiilor și a mușchilor importanți. Lucrându-i în paralel, îți
+                            îmbunătățești
+                            coordonarea, dexteritatea, chiar și viteza și flexibilitatea.
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -36,7 +248,7 @@
                     <div class="footer_link_block">
                         <p>Termeni şi condiţii</p>
                         <p>Sugestii</p>
-                        <p>Conversaţii</p>
+                        <p>Reclamaţii</p>
                     </div>
                 </div>
                 <div class="col-md-2 col-4 px-5">

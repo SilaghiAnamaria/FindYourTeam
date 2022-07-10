@@ -8,12 +8,6 @@
         </a>
 
 
-        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation" aria-controls="navbarToggleExternalContent"
-                style="border: black">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
         <div id="navbarSupportedContent" class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown">
@@ -93,21 +87,21 @@
             </ul>
 
         </div>
+        <button class="navbar fas fa-bars" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation" aria-controls="navbarToggleExternalContent">
+{#            <i class="fas fa-bars"></i>#}
+        </button>
+        {% if request.user.is_authenticated %}
+            <a href="{% url 'logout' %}">
+                <i class="fa-solid fa-right-from-bracket" style="font-size:1.5em; color:#a85757" role="button"></i>
+            </a>
+        {% else %}
+            <a class="navbar-brand" href="{% url 'home' %}"></a>
 
-        <div class="col-md-1">
-            {% if request.user.is_user %}
-                <a href="{% url 'logout' %}">
-                    <i class="fa-solid fa-right-from-bracket" style="font-size:1.5em; color:#a85757" role="button"></i>
-                </a>
-            {% else %}
-                <a class="navbar-brand" href="{% url 'home' %}"></a>
+            <a href="{% url 'login' %}">
+                <i class="fa-regular fa-user" style="font-size: 1.5em; color:dimgrey"></i>
+            </a>
+        {% endif %}
 
-                <a href="{% url 'login' %}">
-                    <i class="fa-regular fa-user" style="font-size: 1.5em; color:dimgrey"></i>
-                </a>
-            {% endif %}
-
-        </div>
-    </div>
     </div>
 </nav>
